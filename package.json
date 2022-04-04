@@ -1,0 +1,11 @@
+{
+  "name": "mynodeproject",
+  "version": "0.0.1",
+  "description": "A sample Node.JS project to practice the language and framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lewis Mitchell",
+  "license": "ISC"
+}
