@@ -1,8 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  if books.length != 0
+  h1 Remove book
+  form(action="/remove-book" method="post")
     p Book directory:
     div
       table
@@ -16,8 +16,6 @@ block content
                   p= book.name
                 td
                   p= book.author
-  div
-    a(href="/add-book") Add book
-  if books.length != 0
-    div
-      a(href="/remove-book") Remove book
+                td
+                  input(type="radio" name="book_id" id="book_id" value=book._id)
+    button(type="submit") Delete

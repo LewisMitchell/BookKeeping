@@ -3,11 +3,23 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
+var addBookRouter = require('./routes/addBook');
+var removeBookRouter = require('./routes/removeBook');
 var usersRouter = require('./routes/users');
 
 var app = express();
+console.log('Connecting to MongoDB');
+var mongoDB = 'mongodb://localhost:27017/test';
+mongoose.connect(mongoDB);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', _ => {
+  console.log('Connected to MongoDB');
+})
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,6 +32,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/add-book', addBookRouter);
+app.use('/remove-book', removeBookRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
