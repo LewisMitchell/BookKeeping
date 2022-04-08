@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 Add book
+  form(action="/add-book" method="post")
+    div
+      label(for="book_name" style="margin-right: 10px") Book name:
+      input(type="text" name="book_name" id="book_name")
+    br
+    div
+      label(for="book_author" style="margin-right: 10px") Author:
+      input(type="text" name="book_author" id="book_author")
+    br
+    div
+      button(type="submit") Submit
