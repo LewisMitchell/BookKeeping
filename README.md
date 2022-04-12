@@ -11,6 +11,8 @@ Created with the purpose of exploring Express, Jade, Mongoose and Node.JS coming
 
 ## Running
 
+If this is the first time runnning the application, run `npm install`
+
 To run this application, run `npm start`
 
 This app runs on port 3000.
